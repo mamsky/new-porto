@@ -35,12 +35,17 @@ export const LayoutMyProject = ({ data }: { data: ProjectTypes }) => {
         ))}
       </div>
       <div className="px-4 flex gap-6 ">
-        <a href={data.github} className="flex items-center gap-3 text-md">
+        <a
+          href={data.github}
+          target="_blank"
+          className="flex items-center gap-3 text-md"
+        >
           <FaGithub size={25} />
           My Repository
         </a>
         <a
           href={data.demo}
+          target="_blank"
           className="flex items-center gap-3 text-md cursor-pointer text-blue-400 hover:text-blue-800"
         >
           <LuLink size={25} />
