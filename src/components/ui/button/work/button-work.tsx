@@ -105,12 +105,12 @@ const ButtonWork = () => {
         <div className="flex gap-2 items-center">
           <BsPersonWorkspace size={30} />
           <div className="flex flex-col">
-            <h1 className="text-xl">Work</h1>
-            <span className="text-sm">setting work</span>
+            <h1 className="text-xl lg:text-2xl">Work</h1>
+            <span className="text-xs">setting work</span>
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="min-w-2xl">
+      <DialogContent className="max-h-screen overflow-y-auto md:min-w-2xl">
         <DialogHeader>
           <DialogTitle>Add Work Experience</DialogTitle>
         </DialogHeader>
@@ -129,6 +129,7 @@ const ButtonWork = () => {
             <p className="text-red-500">{errors.images?.message}</p>
           )}
         </div>
+
         <div>
           <label htmlFor="title">Position</label>
           <Input
@@ -141,6 +142,7 @@ const ButtonWork = () => {
             <p className="text-red-500">{errors.title?.message}</p>
           )}
         </div>
+
         <div>
           <label htmlFor="company">Company</label>
           <Input
@@ -153,6 +155,7 @@ const ButtonWork = () => {
             <p className="text-red-500">{errors.company?.message}</p>
           )}
         </div>
+
         <div>
           <label htmlFor="location">Location</label>
           <Input
@@ -165,9 +168,10 @@ const ButtonWork = () => {
             <p className="text-red-500">{errors.location?.message}</p>
           )}
         </div>
+
         <div>
           <label htmlFor="desc">Description</label>
-          <div className="flex gap-2">
+          <div className="flex  gap-2">
             <Input
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -202,28 +206,47 @@ const ButtonWork = () => {
             </h1>
           </div>
         </div>
-        <div className="flex w-full gap-4 justify-center">
-          <div className="w-full">
-            <label htmlFor="techstack">Techstack</label>
-            <div className="flex gap-2">
-              <Input
-                value={tech}
-                onChange={(e) => setTech(e.target.value)}
-                id="techstack"
-                type="text"
-                placeholder="TechStack"
-              />
-              {errors.techstack && (
-                <p className="text-red-500">{errors.techstack?.message}</p>
-              )}
+
+        <div className="w-full">
+          <label htmlFor="techstack">Techstack</label>
+          <div className="flex gap-2">
+            <Input
+              value={tech}
+              onChange={(e) => setTech(e.target.value)}
+              id="techstack"
+              type="text"
+              placeholder="TechStack"
+            />
+            {errors.techstack && (
+              <p className="text-red-500">{errors.techstack?.message}</p>
+            )}
+            <button
+              onClick={handleAddTech}
+              className="py-2 px-4 bg-blue-500 rounded-md cursor-pointer"
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <div className="flex gap-4 overflow-auto">
+          {dataTech.map((data, i) => (
+            <div
+              key={i}
+              className="bg-white/30 rounded-xl flex justify-between gap-4 py-2 px-4 my-4"
+            >
+              <h1>{data}</h1>
               <button
-                onClick={handleAddTech}
-                className="py-2 px-4 bg-blue-500 rounded-md cursor-pointer"
+                onClick={() => handleRemoveTech(i)}
+                className="cursor-pointer text-red-500"
               >
-                +
+                <FaTrash />
               </button>
             </div>
-          </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-4 justify-center">
           <div className="w-full">
             <label htmlFor="startDate">Start Date</label>
             <Input
@@ -244,26 +267,10 @@ const ButtonWork = () => {
               type="date"
               placeholder="EndDate"
             />
+            {errors.endDate && (
+              <p className="text-red-500">{errors.endDate?.message}</p>
+            )}
           </div>
-          {errors.endDate && (
-            <p className="text-red-500">{errors.endDate?.message}</p>
-          )}
-        </div>
-        <div className="flex gap-4 overflow-auto">
-          {dataTech.map((data, i) => (
-            <div
-              key={i}
-              className="bg-white/30 rounded-xl flex justify-between gap-4 py-2 px-4 my-4"
-            >
-              <h1>{data}</h1>
-              <button
-                onClick={() => handleRemoveTech(i)}
-                className="cursor-pointer text-red-500"
-              >
-                <FaTrash />
-              </button>
-            </div>
-          ))}
         </div>
 
         <DialogFooter>

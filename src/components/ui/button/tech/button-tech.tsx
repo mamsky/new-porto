@@ -64,8 +64,8 @@ const ButtonTech = () => {
         <div className="flex gap-2 items-center">
           <BsStackOverflow size={30} />
           <div className="flex flex-col">
-            <h1 className="text-xl">Tech</h1>
-            <span className="text-sm">Add new tech</span>
+            <h1 className="text-xl lg:text-2xl">Tech</h1>
+            <span className="text-xs">Add new tech</span>
           </div>
         </div>
       </DialogTrigger>

@@ -52,9 +52,12 @@ const CardProfile = () => {
   useEffect(() => {
     if (imagePreview && imagePreview.length > 0) {
       const file = imagePreview[0];
-      const bloob = URL.createObjectURL(file);
-      setImgPrv(bloob);
-      return () => URL.revokeObjectURL(bloob);
+
+      if (file instanceof File) {
+        const bloob = URL.createObjectURL(file);
+        setImgPrv(bloob);
+        return () => URL.revokeObjectURL(bloob);
+      }
     }
   }, [imagePreview]);
 
@@ -69,8 +72,8 @@ const CardProfile = () => {
         <div className="flex gap-2 items-center ">
           <GrUserSettings size={40} />
           <div className="flex flex-col">
-            <h1 className="text-2xl">Profile</h1>
-            <span className="text-sm">card profile</span>
+            <h1 className="text-xl lg:text-2xl">Profile</h1>
+            <span className="text-xs">card profile</span>
           </div>
         </div>
         {/* </Button> */}

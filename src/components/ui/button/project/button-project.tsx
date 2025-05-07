@@ -1,3 +1,4 @@
+"use client";
 import {
   Dialog,
   DialogClose,
@@ -92,12 +93,12 @@ const ButtonMyProject = () => {
         <div className="flex gap-2 items-center">
           <PiProjectorScreenChartDuotone size={30} />
           <div className="flex flex-col">
-            <h1 className="text-xl">Project</h1>
-            <h1 className="text-sm">setting project</h1>
+            <h1 className="text-xl lg:text-2xl">Project</h1>
+            <h1 className="text-xs">setting project</h1>
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="min-w-2xl">
+      <DialogContent className="max-h-screen overflow-y-auto md:min-w-2xl">
         <DialogHeader>
           <DialogTitle className="mb-4">Add New Project</DialogTitle>
         </DialogHeader>

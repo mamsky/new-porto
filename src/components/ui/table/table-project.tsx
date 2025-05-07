@@ -30,12 +30,12 @@ const TableProject = () => {
         <div className="flex gap-2 items-center">
           <PiProjectorScreenBold size={40} />
           <div className="flex flex-col">
-            <h1 className="text-2xl">Project</h1>
-            <span className="text-sm">table project</span>
+            <h1 className="text-xl lg:text-2xl">Project</h1>
+            <span className="text-xs">table project</span>
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="min-w-4xl">
+      <DialogContent className="md:min-w-4xl">
         <DialogHeader>
           <DialogTitle>Table My Project</DialogTitle>
         </DialogHeader>

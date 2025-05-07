@@ -30,13 +30,13 @@ const TableWork = () => {
         <div className="flex gap-2 items-center">
           <MdWorkOutline size={40} />
           <div className="flex flex-col">
-            <h1 className="text-2xl">Work</h1>
-            <span className="text-sm">table work experience</span>
+            <h1 className="text-xl lg:text-2xl">Work</h1>
+            <span className="text-xs">table work experience</span>
           </div>
         </div>
       </DialogTrigger>
 
-      <DialogContent className="min-w-4xl">
+      <DialogContent className="md:min-w-4xl">
         <DialogHeader>
           <DialogTitle>Table Work Experionce</DialogTitle>
         </DialogHeader>

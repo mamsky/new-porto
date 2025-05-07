@@ -15,10 +15,10 @@ const ButtonMenu = () => {
   const [isShow, setIsShow] = useState<boolean>(true);
   const { data, isFetched } = UseGetProfile();
   return (
-    <div>
+    <div className="hidden md:block">
       <div
         hidden={isShow}
-        className="fixed bottom-12 h-[60%] w-[25%] duration-700 ease-in bg-blue-800"
+        className="fixed bottom-12 h-[60%] lg:w-[25%] md:w-[40%] bg-blue-800"
       >
         {/* top  */}
         {isFetched && (
@@ -33,10 +33,11 @@ const ButtonMenu = () => {
             <h1 className="text-white text-3xl">{data?.surname}</h1>
           </div>
         )}
+
         <hr />
         {/* center  */}
-        <div className="flex w-full h-[75%]">
-          <div className="bg-white w-full ml-1 p-2 text-black flex flex-col gap-4">
+        <div className="grid grid-cols-2 md:h-[73%] xl:h-[75%]">
+          <div className="bg-white ml-1 p-2 text-black flex flex-col gap-4">
             {/* content  1*/}
             <TableTech />
             {/* content 2 */}
@@ -45,7 +46,7 @@ const ButtonMenu = () => {
             <TableProject />
             {/* end content  */}
           </div>
-          <div className="bg-blue-100 w-full mr-1 p-2 text-black flex flex-col gap-4">
+          <div className="bg-blue-100 mr-1 p-2 text-black flex flex-col gap-4">
             {/* content  1*/}
             <CardProfile />
             {/* content  2*/}
@@ -63,7 +64,7 @@ const ButtonMenu = () => {
 
       <button
         onClick={() => setIsShow(!isShow)}
-        className=" bg-green-600 text-2xl cursor-pointer px-6 border-white border-1 py-2 rounded-r-xl font-bold text-amber-100"
+        className="hidden md:block bg-green-600 text-2xl cursor-pointer px-6 border-white border-1 py-2 rounded-r-xl font-bold text-amber-100"
       >
         <div className="flex gap-4">
           <Image src={WindowsLogo} alt="logo" width={30} height={20} />

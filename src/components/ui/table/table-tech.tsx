@@ -31,8 +31,8 @@ const TableTech = () => {
         <div className="flex gap-2 items-center">
           <GiStack size={40} />
           <div className="flex flex-col">
-            <h1 className="text-2xl">Tech</h1>
-            <span className="text-sm">table tech</span>
+            <h1 className="text-xl lg:text-2xl">Tech</h1>
+            <span className="text-xs">table tech</span>
           </div>
         </div>
       </DialogTrigger>

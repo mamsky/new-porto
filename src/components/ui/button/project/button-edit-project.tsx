@@ -93,7 +93,7 @@ const ButtonEditProject = ({ dataProject }: { dataProject: ProjectTypes }) => {
       <DialogTrigger asChild className="hover:bg-black/30 cursor-pointer">
         <FaEdit size={20} />
       </DialogTrigger>
-      <DialogContent className="min-w-2xl">
+      <DialogContent className="max-h-screen overflow-y-auto md:min-w-2xl">
         <DialogHeader>
           <DialogTitle className="mb-4">Edit Project</DialogTitle>
         </DialogHeader>
