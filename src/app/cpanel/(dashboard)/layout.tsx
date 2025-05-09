@@ -2,6 +2,7 @@ import ButtonMenu from "@/components/ui/button/button-menu";
 import ButtonMyProject from "@/components/ui/button/project/button-project";
 import ButtonTech from "@/components/ui/button/tech/button-tech";
 import ButtonWork from "@/components/ui/button/work/button-work";
+import { Pet } from "@/components/ui/pet";
 import TableProject from "@/components/ui/table/table-project";
 import TableTech from "@/components/ui/table/table-tech";
 import TableWork from "@/components/ui/table/table-work";
@@ -12,7 +13,9 @@ const DashboardLayout = () => {
     <AuthGuard>
       <div className="bg-[url('/images/windowsXp.jpg')] bg-cover bg-center h-screen">
         <div className="flex justify-center h-full md:items-center">
+          <Pet />
           <h1 className="text-white text-4xl">Welcome Admin</h1>
+
           <div className="fixed left-0 top-16 text-black md:hidden">
             <div className="grid grid-rows-5 gap-4">
               <ButtonTech />
@@ -24,7 +27,6 @@ const DashboardLayout = () => {
             </div>
           </div>
         </div>
-
         <div className="fixed flex items-center bottom-0 w-full bg-gradient-to-t from-blue-800 to-blue-600 h-12">
           <ButtonMenu />
         </div>

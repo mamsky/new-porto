@@ -25,8 +25,6 @@ const useEditTech = (id: string) => {
       return response.data;
     },
     onSuccess: async (res) => {
-      console.log(res);
-
       toast.success(res.message);
       await queryClient.invalidateQueries({
         queryKey: ["tech"],

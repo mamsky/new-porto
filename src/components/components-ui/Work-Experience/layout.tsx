@@ -1,4 +1,5 @@
 "use client";
+import useFormatDate from "@/lib/hook/format-date";
 import { WorkTypeData } from "@/lib/types/work.types";
 import Image from "next/image";
 
@@ -24,7 +25,7 @@ export const ListWork = ({ data }: { data: WorkTypeData }) => {
               </p>
             </div>
             <span className="text-sm text-gray-500 dark:text-gray-400 mt-2 md:mt-0">
-              {data.startDate} - {data.endDate}
+              {useFormatDate(data.startDate)} - {useFormatDate(data.endDate)}
             </span>
           </div>
 

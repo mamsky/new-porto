@@ -4,11 +4,12 @@ import Cookies from "js-cookie";
 import { redirect } from "next/navigation";
 import { toast } from "sonner";
 import { api } from "./use-api";
+import { AxiosError } from "axios";
 
 export const useGuard = () => {
   const token = Cookies.get("token");
 
-  const query = useQuery({
+  const query = useQuery<AxiosError>({
     queryKey: ["auth-guard"],
     queryFn: async () => {
       try {

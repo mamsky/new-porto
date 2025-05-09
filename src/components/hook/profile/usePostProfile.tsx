@@ -6,7 +6,7 @@ import { AxiosError, AxiosResponse, isAxiosError } from "axios";
 import { toast } from "sonner";
 import UseGetProfile from "./useGetProfile";
 
-export const UsePostProfile = () => {
+export const UsePostProfile = (id: string) => {
   const { data: pData } = UseGetProfile();
   const queryClient = useQueryClient();
   const query = useMutation<
@@ -28,17 +28,17 @@ export const UsePostProfile = () => {
       formData.append("status", data.status);
 
       let response: AxiosResponse;
-      if (pData?.id) {
+      if (id) {
         response = await api.put(`/profiles/${pData?.id}`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
+        return response.data;
       } else {
         response = await api.post(`/profiles`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
+        return response.data;
       }
-
-      return response.data;
     },
     onError: (errors) => {
       if (isAxiosError(errors)) {

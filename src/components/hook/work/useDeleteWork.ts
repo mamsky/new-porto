@@ -11,8 +11,6 @@ export const useDeleteWork = () => {
       return response.data;
     },
     onSuccess: async (data) => {
-      console.log("Invalidating 'work' query...");
-      // await queryClient.invalidateQueries({ queryKey: ["work"] });
       await queryClient.refetchQueries({ queryKey: ["work"] });
       toast.success(data.message);
     },

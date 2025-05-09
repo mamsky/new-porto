@@ -34,22 +34,34 @@ export const LayoutMyProject = ({ data }: { data: ProjectTypes }) => {
           </span>
         ))}
       </div>
-      <div className="px-4 flex gap-6 ">
+      <div className="px-4 flex gap-6">
         <a
+          // aria-disabled={data.github == "" ? true : false}
           href={data.github}
           target="_blank"
-          className="flex items-center gap-3 text-md"
+          className="flex items-center gap-3 text-md bg-black/10 dark:bg-stone-700 p-2 rounded-xl"
         >
           <FaGithub size={25} />
-          My Repository
+          <h1
+            className={`${
+              !data.github
+                ? "text-red-500 text-shadow-4xs text-shadow-white"
+                : "text-green-500 font-bold"
+            }`}
+          >
+            My Repository
+          </h1>
         </a>
         <a
+          // aria-disabled={!data.demo ? true : false}
           href={data.demo}
           target="_blank"
-          className="flex items-center gap-3 text-md cursor-pointer text-blue-400 hover:text-blue-800"
+          className={`flex items-center gap-3 text-md cursor-pointer hover:text-blue-80`}
         >
           <LuLink size={25} />
-          Live Demo
+          <h1 className={`${data.demo ? "text-blue-400" : "text-red-500"}`}>
+            Live Demo
+          </h1>
         </a>
       </div>
     </div>

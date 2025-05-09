@@ -35,6 +35,11 @@ export default function LanyardModel({ path, imageUrl }: LanyardModelProps) {
   }, [texture]);
 
   return (
-    <primitive ref={ref} object={gltf.scene} scale={3} position={[1, -2, 0]} />
+    <primitive
+      ref={ref}
+      object={gltf.scene}
+      scale={3}
+      position={[0.5, -1.5, 0]}
+    />
   );
 }

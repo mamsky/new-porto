@@ -27,7 +27,11 @@ import { Textarea } from "./textarea";
 
 const CardProfile = () => {
   const { data: profileData } = UseGetProfile();
-  const { mutateAsync, isPending } = UsePostProfile();
+  const dataId = profileData?.id;
+  console.log(dataId);
+  console.log(profileData?.images);
+
+  const { mutateAsync, isPending } = UsePostProfile(dataId || "");
   const {
     register,
     handleSubmit,
@@ -52,7 +56,6 @@ const CardProfile = () => {
   useEffect(() => {
     if (imagePreview && imagePreview.length > 0) {
       const file = imagePreview[0];
-
       if (file instanceof File) {
         const bloob = URL.createObjectURL(file);
         setImgPrv(bloob);

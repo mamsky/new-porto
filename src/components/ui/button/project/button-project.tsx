@@ -185,7 +185,7 @@ const ButtonMyProject = () => {
         </div>
         {errors.demo && <p className="text-red-500">{errors.demo.message}</p>}
         <div>
-          <label htmlFor="demo">Link Demo</label>
+          <label htmlFor="demo">Link Github</label>
           <Input
             {...register("github")}
             type="text"

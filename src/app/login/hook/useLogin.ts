@@ -15,7 +15,6 @@ export const useLogin = () => {
   >({
     mutationKey: ["Login-Admin"],
     mutationFn: async (data: LoginSchemaDTO) => {
-      console.log("Posting ke:", api.defaults.baseURL + "/users/auth");
       const response = await api.post("/users/auth", data);
       Cookies.set("token", response.data.token);
       return await response.data;

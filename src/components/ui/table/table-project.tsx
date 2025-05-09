@@ -71,8 +71,8 @@ const TableProject = () => {
 
                   <TableCell>{field.title!.slice(0, 20)}...</TableCell>
                   <TableCell>{field.description!.slice(0.2)}...</TableCell>
-                  <TableCell>{"https://www.demo.com"}</TableCell>
-                  <TableCell>{"https://www.github.com"}</TableCell>
+                  <TableCell>{field.demo}</TableCell>
+                  <TableCell>{field.github}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-4">
                       <ButtonDeleteProject id={field.id!} />

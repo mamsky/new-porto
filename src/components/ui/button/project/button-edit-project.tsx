@@ -1,4 +1,3 @@
-import { useEditProject } from "@/components/hook/project/useEditProject";
 import {
   Dialog,
   DialogClose,
@@ -8,85 +7,35 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  ProjectSchemas,
-  ProjectSchemasDTO,
-} from "@/lib/schemas/project.schemas";
 import { ProjectTypes } from "@/lib/types/project.types";
-import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { toast } from "sonner";
 import { Button } from "../../button";
 import { Input } from "../../input";
 import { Textarea } from "../../textarea";
+import { useEditProjectForm } from "./hook/useEditProject";
+import { useProjectForm } from "./hook/useProjectForm";
 
 const ButtonEditProject = ({ dataProject }: { dataProject: ProjectTypes }) => {
-  console.log(dataProject);
-
-  const [techstack, setTechstack] = useState<{ techstack: string }>({
-    techstack: "",
-  });
-  const [dataTechstack, setDataTechstack] = useState<{ techstack: string }[]>(
-    dataProject.techstack
-  );
-
-  const closeButton = useRef<HTMLButtonElement>(null);
-  const { mutateAsync, isPending, isSuccess } = useEditProject(dataProject.id!);
   const {
     register,
     watch,
-    reset,
     handleSubmit,
     formState: { errors },
     setValue,
-  } = useForm<ProjectSchemasDTO>({
-    mode: "onChange",
-    resolver: zodResolver(ProjectSchemas),
-  });
-
-  const handleAddTech = () => {
-    if (techstack.techstack == "") {
-      toast.error("At least technology one character");
-    }
-    setDataTechstack((field) => [...field, techstack]);
-    setTechstack({ techstack: "" });
-  };
-
-  const handleRemoveTech = (i: number) => {
-    const dataTech = [...dataTechstack];
-    dataTech.splice(i, 1);
-    setDataTechstack(dataTech);
-  };
-
-  useEffect(() => {
-    setValue(
-      "techstack",
-      dataTechstack.map((field) => field.techstack)
-    );
-  }, [dataTechstack, setValue]);
-
-  const getImg = watch("images");
-  const [imgPrv, setImgPrv] = useState<string | undefined>();
-
-  useEffect(() => {
-    if (isSuccess && closeButton.current) {
-      closeButton.current.click();
-    }
-
-    if (getImg && getImg.length > 0) {
-      const file = getImg[0];
-      const bloob = URL.createObjectURL(file);
-      setImgPrv(bloob);
-      return () => URL.revokeObjectURL(bloob);
-    }
-  }, [getImg, reset, isSuccess]);
-
-  const onSubmit = async (data: ProjectSchemasDTO) => {
-    await mutateAsync(data);
-  };
+  } = useProjectForm();
+  const {
+    closeButton,
+    techstack,
+    setTechstack,
+    dataTechstack,
+    // setDataTechstack,
+    handleAddTech,
+    handleRemoveTech,
+    imgPrv,
+    onSubmit,
+    isPending,
+  } = useEditProjectForm(dataProject, watch, setValue);
 
   return (
     <Dialog>
@@ -204,7 +153,7 @@ const ButtonEditProject = ({ dataProject }: { dataProject: ProjectTypes }) => {
             onClick={handleSubmit(onSubmit)}
             className="cursor-pointer hover:bg-stone-400"
           >
-            {isPending ? "Loading..." : "Create"}
+            {isPending ? "Loading..." : "Save Change"}
           </Button>
           <DialogClose ref={closeButton} hidden>
             x

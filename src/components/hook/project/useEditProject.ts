@@ -21,8 +21,9 @@ export const useEditProject = (id: string) => {
       formData.append("title", data.title);
       formData.append("description", data.description);
       formData.append("techstack", JSON.stringify(data.techstack));
-      formData.append("demo", data.demo);
-      formData.append("github", data.github);
+
+      formData.append("demo", data.demo || "");
+      formData.append("github", data.github || "");
       const response = await api.put(`/projects/${id}`, formData);
       return response.data;
     },

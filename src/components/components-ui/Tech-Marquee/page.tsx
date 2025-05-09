@@ -20,7 +20,7 @@ const TechMarqueePage = () => {
           {Array.isArray(data) && data.length > 0
             ? data.map((icons) => (
                 <div key={icons.id}>
-                  <div className="mx-6 border p-1 bg-white/30 backdrop-blur-sm rounded-2xl w-16 h-16 flex items-center ">
+                  <div className="mx-6 border p-1 bg-white/30 backdrop-blur-sm rounded-2xl w-20 h-20 flex items-center ">
                     {typeof icons.images == "string" && (
                       <Image
                         src={icons.images}
@@ -31,7 +31,7 @@ const TechMarqueePage = () => {
                       />
                     )}
                   </div>
-                  <h3 className="text-center">{icons.name}</h3>
+                  <h3 className="text-center text-lg">{icons.name}</h3>
                 </div>
               ))
             : "No data Techstack available "}

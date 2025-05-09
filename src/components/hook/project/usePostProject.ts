@@ -21,8 +21,9 @@ export const usePostProject = () => {
       formData.append("title", data.title);
       formData.append("description", data.description);
       formData.append("techstack", JSON.stringify(data.techstack));
-      formData.append("demo", data.demo);
-      formData.append("github", data.github);
+      formData.append("demo", data.demo || "");
+
+      formData.append("github", data.github || "");
 
       const response = await api.post("/projects", formData);
       return response.data;
