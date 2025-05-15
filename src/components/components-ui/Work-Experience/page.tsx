@@ -17,7 +17,7 @@ const WorkExperience = () => {
         <h2 className="text-2xl md:text-3xl font-bold">
           {Array.isArray(data) && data?.length > 0
             ? "Work Experiences"
-            : "Academy:"}
+            : "Education:"}
         </h2>
       </div>
       {Array.isArray(data) && data.length > 0 ? (
