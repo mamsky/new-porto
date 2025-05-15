@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import { redirect } from "next/navigation";
 import { toast } from "sonner";
 import { api } from "./use-api";
-import { AxiosError } from "axios";
+import { AxiosError, isAxiosError } from "axios";
 
 export const useGuard = () => {
   const token = Cookies.get("token");
@@ -18,10 +18,12 @@ export const useGuard = () => {
         });
         return response.data;
       } catch (error) {
-        Cookies.remove("token");
-        toast.error("Session expired, please log in again");
-        window.location.reload();
-        redirect("/login");
+        if (isAxiosError(error)) {
+          Cookies.remove("token");
+          toast.error("Session expired, please log in again");
+          window.location.reload();
+          redirect("/login");
+        }
       }
     },
   });
