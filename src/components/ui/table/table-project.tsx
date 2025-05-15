@@ -40,15 +40,15 @@ const TableProject = () => {
           <DialogTitle>Table My Project</DialogTitle>
         </DialogHeader>
         <Table>
-          <TableCaption>A list of your Project.</TableCaption>
+          <TableCaption>List For Project.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead className="w-[100px]">No</TableHead>
               <TableHead>Image</TableHead>
               <TableHead>Title</TableHead>
               <TableHead>Description</TableHead>
-              <TableHead>Link Demo</TableHead>
-              <TableHead>Link Github</TableHead>
+              {/* <TableHead>Link Demo</TableHead>
+              <TableHead>Link Github</TableHead> */}
               <TableHead className="text-right">Action</TableHead>
             </TableRow>
           </TableHeader>
@@ -70,9 +70,9 @@ const TableProject = () => {
                   </TableCell>
 
                   <TableCell>{field.title!.slice(0, 20)}...</TableCell>
-                  <TableCell>{field.description!.slice(0.2)}...</TableCell>
-                  <TableCell>{field.demo}</TableCell>
-                  <TableCell>{field.github}</TableCell>
+                  <TableCell>{field.description!.slice(0, 20)}...</TableCell>
+                  {/* <TableCell>{field.demo}</TableCell>
+                  <TableCell>{field.github}</TableCell> */}
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-4">
                       <ButtonDeleteProject id={field.id!} />

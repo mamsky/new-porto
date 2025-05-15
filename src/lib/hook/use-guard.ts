@@ -18,9 +18,9 @@ export const useGuard = () => {
         });
         return response.data;
       } catch (error) {
-        console.log(error);
         Cookies.remove("token");
         toast.error("Session expired, please log in again");
+        window.location.reload();
         redirect("/login");
       }
     },

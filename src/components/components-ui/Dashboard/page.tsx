@@ -1,6 +1,5 @@
 "use client";
 import UseGetProfile from "@/components/hook/profile/useGetProfile";
-import { Button } from "@/components/ui/button";
 import LanyardViewer from "@/components/ui/lanyard/LanyardView";
 import { FaWhatsapp } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
@@ -64,10 +63,14 @@ const DashboardPage = () => {
                   <FaWhatsapp />
                   {" Let's Talk"}
                 </a>
-                <Button>
+                <a
+                  href={"/curriculum-vitae"}
+                  target="_blank"
+                  className="flex items-center px-2 py-1 border rounded-xl bg-black dark:bg-white text-white dark:text-black"
+                >
                   <HiOutlineDocumentDownload />
                   Download CV
-                </Button>
+                </a>
               </div>
             </div>
           </div>

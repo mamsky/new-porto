@@ -1,17 +1,15 @@
-import React from "react";
-import { FaWhatsapp } from "react-icons/fa";
-import { HiOutlineDocumentDownload } from "react-icons/hi";
+import LogoImage from "@/assets/Logo-paste.png";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import LogoImage from "@/assets/Logo-paste.png";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
-import { Button } from "@/components/ui/button";
+import { FaWhatsapp } from "react-icons/fa";
+import { HiOutlineDocumentDownload } from "react-icons/hi";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const NavigationBar = () => {
   const handleButtonTech = (text: string) => {
@@ -80,10 +78,14 @@ const NavigationBar = () => {
             <FaWhatsapp />
             {" Let's Talk"}
           </a>
-          <Button>
+          <a
+            href={"/curriculum-vitae"}
+            target="_blank"
+            className="flex items-center px-2 py-1 border rounded-xl bg-black dark:bg-white text-white dark:text-black"
+          >
             <HiOutlineDocumentDownload />
             Download CV
-          </Button>
+          </a>
           <ModeToggle />
         </div>
       </div>

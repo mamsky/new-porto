@@ -21,7 +21,7 @@ export const LayoutMyProject = ({ data }: { data: ProjectTypes }) => {
       <div className="p-4">
         <h3 className="font-semibold text-2xl mb-3">{data.title}</h3>
         <p className="text-gray-600 dark:text-white text-lg mb-4">
-          {data.description}
+          {data.description?.slice(0, 150)}
         </p>
       </div>
       <div className="flex flex-wrap gap-2 mb-6 px-4">
@@ -36,7 +36,6 @@ export const LayoutMyProject = ({ data }: { data: ProjectTypes }) => {
       </div>
       <div className="px-4 flex gap-6">
         <a
-          // aria-disabled={data.github == "" ? true : false}
           href={data.github}
           target="_blank"
           className="flex items-center gap-3 text-md bg-black/10 dark:bg-stone-700 p-2 rounded-xl"

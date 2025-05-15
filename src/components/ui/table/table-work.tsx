@@ -30,7 +30,7 @@ const TableWork = () => {
         <div className="flex gap-2 items-center">
           <MdWorkOutline size={40} />
           <div className="flex flex-col">
-            <h1 className="text-xl lg:text-2xl">Work</h1>
+            <h1 className="text-xl lg:text-2xl">Experience</h1>
             <span className="text-xs">table work experience</span>
           </div>
         </div>
@@ -41,7 +41,7 @@ const TableWork = () => {
           <DialogTitle>Table Work Experionce</DialogTitle>
         </DialogHeader>
         <Table>
-          <TableCaption>A list of your Work Experionce.</TableCaption>
+          <TableCaption>List For Work Experionce.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead className="w-[100px]">No</TableHead>

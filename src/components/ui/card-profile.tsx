@@ -28,8 +28,6 @@ import { Textarea } from "./textarea";
 const CardProfile = () => {
   const { data: profileData } = UseGetProfile();
   const dataId = profileData?.id;
-  console.log(dataId);
-  console.log(profileData?.images);
 
   const { mutateAsync, isPending } = UsePostProfile(dataId || "");
   const {

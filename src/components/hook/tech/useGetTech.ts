@@ -8,7 +8,6 @@ export const UseGetTech = () => {
     queryKey: ["tech"],
     queryFn: async () => {
       const response = await api.get("/tech");
-
       return response.data.data;
     },
   });

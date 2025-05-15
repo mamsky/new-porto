@@ -105,9 +105,9 @@ const ButtonTech = () => {
           <Button
             onClick={handleSubmit(onSubmit)}
             disabled={isPending ? true : false}
-            className="py-2 px-6 text-2xl hover:bg-neutral-400 cursor-pointer font-bold"
+            className="py-2 px-6 text-xl hover:bg-neutral-400 cursor-pointer font-bold"
           >
-            {isPending ? "Loading..." : "Save"}
+            {isPending ? "Loading..." : "Create"}
           </Button>
         </div>
       </DialogContent>

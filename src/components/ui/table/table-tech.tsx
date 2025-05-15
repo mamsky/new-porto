@@ -41,7 +41,7 @@ const TableTech = () => {
           <DialogTitle>Table Technology</DialogTitle>
         </DialogHeader>
         <Table className="max-h-48 overflow-y-auto">
-          <TableCaption>A list of your technology.</TableCaption>
+          <TableCaption>list of technology.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead className="w-[100px]">No</TableHead>

@@ -105,7 +105,7 @@ const ButtonWork = () => {
         <div className="flex gap-2 items-center">
           <BsPersonWorkspace size={30} />
           <div className="flex flex-col">
-            <h1 className="text-xl lg:text-2xl">Work</h1>
+            <h1 className="text-xl lg:text-2xl">Experience</h1>
             <span className="text-xs">setting work</span>
           </div>
         </div>
@@ -279,7 +279,7 @@ const ButtonWork = () => {
             className="cursor-pointer hover:bg-stone-400"
             disabled={isPending ? true : false}
           >
-            {isPending ? "Loading..." : "Save changes"}
+            {isPending ? "Loading..." : "Create"}
           </Button>
         </DialogFooter>
         <DialogClose asChild hidden ref={buttonClose}>
